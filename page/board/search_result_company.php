@@ -55,10 +55,10 @@
                 $sql2 = mq("select * from subconlist where $catagory like '%$search_con%' order by id ");  
                 while($board = $sql2->fetch_array()){
                   $etc=$board["etc"]; 
-                  if(strlen($etc)>20)
-                  { 
-                    $etc=str_replace($board["etc"],mb_substr($board["etc"],0,20,"utf-8")."...",$board["etc"]);
-                  }
+//                  if(strlen($etc)>20)
+//                  { 
+//                    $etc=str_replace($board["etc"],mb_substr($board["etc"],0,20,"utf-8")."...",$board["etc"]);
+//                  }
                   /* $sql3 = mq("select * from reply where con_num='".$board['idx']."'");
                   $rep_count = mysqli_num_rows($sql3);*/
               ?>

@@ -53,10 +53,10 @@
                   $sql2 = mq("select * from bid_project where $catagory like '%$search_con%' order by id ");  
                   while($board = $sql2->fetch_array()){
                     $pj=$board["pj"]; 
-                    if(strlen($pj)>30)
-                    { 
-                      $pj=str_replace($board["pj"],mb_substr($board["pj"],0,30,"utf-8")."...",$board["pj"]);
-                    }
+//                    if(strlen($pj)>30)
+//                    { 
+//                      $pj=str_replace($board["pj"],mb_substr($board["pj"],0,30,"utf-8")."...",$board["pj"]);
+//                    }
                     /* $sql3 = mq("select * from reply where con_num='".$board['idx']."'");
                     $rep_count = mysqli_num_rows($sql3);*/
                 ?>

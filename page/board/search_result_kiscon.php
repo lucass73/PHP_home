@@ -57,10 +57,10 @@
                 $sql2 = mq("SELECT * FROM contlisttbl where $catagory like '%$search_con%' order by id ");  
                 while($board = $sql2->fetch_array()){
                   $constname=$board["constname"]; 
-                  if(strlen($constname)>20)
-                  { 
-                    $constname=str_replace($board["constname"],mb_substr($board["constname"],0,20,"utf-8")."...",$board["constname"]);
-                  }
+//                  if(strlen($constname)>20)
+//                  { 
+//                    $constname=str_replace($board["constname"],mb_substr($board["constname"],0,20,"utf-8")."...",$board["constname"]);
+//                  }
                   /* $sql3 = mq("select * from reply where con_num='".$board['idx']."'");
                   $rep_count = mysqli_num_rows($sql3);*/
                 ?>
