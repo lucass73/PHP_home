@@ -54,10 +54,10 @@
               
                 $sql2 = mq("select * from subconlist where $catagory like '%$search_con%' order by id ");  
                 while($board = $sql2->fetch_array()){
-                  $특이사항=$board["특이사항"]; 
-                  if(strlen($특이사항)>20)
+                  $etc=$board["etc"]; 
+                  if(strlen($etc)>20)
                   { 
-                    $특이사항=str_replace($board["특이사항"],mb_substr($board["특이사항"],0,20,"utf-8")."...",$board["특이사항"]);
+                    $etc=str_replace($board["etc"],mb_substr($board["etc"],0,20,"utf-8")."...",$board["etc"]);
                   }
                   /* $sql3 = mq("select * from reply where con_num='".$board['idx']."'");
                   $rep_count = mysqli_num_rows($sql3);*/
@@ -65,17 +65,17 @@
             <tbody>
               <tr>
                 <td><?php echo $board['ID']; ?></td>
-                <td><?php echo $board["공종"]?></td>
+                <td><?php echo $board["type"]?></td>
                 <td>
-                  <a href='/page/board/read_company.php?id=<?=$board['ID']?>'><?php echo $board["업체명"]; ?>
+                  <a href='/page/board/read_company.php?id=<?=$board['ID']?>'><?php echo $board["company"]; ?>
                   </a></td>
-                <td><?php echo $board["사업자등록번호"]?></td>
-                <td><?php echo $board["한화건설등록여부"]?></td>
-                <td><?php echo $board["연락담당자"]?></td>
-                <td><?php echo $board["전화번호"]?></td>
-                <td><?php echo $board["휴대전화"]?></td>
-                <td><?php echo $board["이메일"]?></td>
-                <td><?php echo $특이사항?></td>
+                <td><?php echo $board["register"]?></td>
+                <td><?php echo $board["subcon"]?></td>
+                <td><?php echo $board["person"]?></td>
+                <td><?php echo $board["linenumber"]?></td>
+                <td><?php echo $board["mobile"]?></td>
+                <td><?php echo $board["email"]?></td>
+                <td><?php echo $etc?></td>
                 <td><a href="/page/board/modify_company.php?id=<?=$board['ID']?>">수정</a>
                 <a href="/page/board/delete_company_ok.php?id=<?=$board['ID']?>">삭제</a></td>
               </tr>
@@ -86,9 +86,9 @@
   <div id="search_box">
     <form action="/page/board/search_result_company.php" method="get">
       <select name="catgo">
-        <option value="공종">공종</option>
-        <option value="업체명">업체명</option>
-        <option value="담당자">담당자</option>
+        <option value="type">공종</option>
+        <option value="company">업체명</option>
+        <option value="person">담당자</option>
       </select>
       <input type="text" name="search" size="40" required="required" /> <button>검색</button>
     </form>

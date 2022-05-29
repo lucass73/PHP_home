@@ -1,5 +1,5 @@
 <?php
-  include('db.php');
+  include $_SERVER['DOCUMENT_ROOT']."/db.php";
   $sql=mq("SELECT * FROM topic");
   $list = '';
     while($row = $sql->fetch_array()) {
@@ -52,10 +52,10 @@
               
                   $sql2 = mq("select * from bid_project where $catagory like '%$search_con%' order by id ");  
                   while($board = $sql2->fetch_array()){
-                    $프로젝트명=$board["프로젝트명"]; 
-                    if(strlen($프로젝트명)>30)
+                    $pj=$board["pj"]; 
+                    if(strlen($pj)>30)
                     { 
-                      $프로젝트명=str_replace($board["프로젝트명"],mb_substr($board["프로젝트명"],0,30,"utf-8")."...",$board["프로젝트명"]);
+                      $pj=str_replace($board["pj"],mb_substr($board["pj"],0,30,"utf-8")."...",$board["pj"]);
                     }
                     /* $sql3 = mq("select * from reply where con_num='".$board['idx']."'");
                     $rep_count = mysqli_num_rows($sql3);*/
@@ -65,14 +65,14 @@
                 <td><?php echo $board['ID']; ?></td>
                 <td>
 
-              <a href='/page/board/read.php?id=<?php  echo $board["id"]; ?>'><?php echo $프로젝트명; ?>
+              <a href='/page/board/read.php?id=<?php  echo $board["id"]; ?>'><?php echo $pj; ?>
               </a></td>
                 <td><?php echo $board["PlantType"]?></td>
-                <td><?php echo $board["입찰방식"]?></td>
+                <td><?php echo $board["typebid"]?></td>
                 <td><?php echo $board["BCD"]?></td>
-                <td><?php echo $board["발주처"]?></td>
-                <td><?php echo $board["프로젝트기간"]?></td>
-                <td><?php echo $board["공사위치"]; ?></td>
+                <td><?php echo $board["client"]?></td>
+                <td><?php echo $board["projectperiod"]?></td>
+                <td><?php echo $board["location"]; ?></td>
                 <td><a href="/page/board/modify_project.php?id=<?=$board['ID']?>">수정</a>
                 <a href="/page/board/delete_project_ok.php?id=<?=$board['ID']?>">삭제</a></td>
               </tr>
@@ -83,9 +83,9 @@
   <div id="search_box">
     <form action="/board/page/board/search_result_project.php" method="get">
       <select name="catgo">
-        <option value="프로젝트명">프로젝트명</option>
-        <option value="입찰방식">입찰방식</option>
-        <option value="발주처">발주처</option>
+        <option value="pj">프로젝트명</option>
+        <option value="typebid">입찰방식</option>
+        <option value="client">발주처</option>
       </select>
       <input type="text" name="search" size="40" required="required" /> <button>검색</button>
     </form>

@@ -1,5 +1,5 @@
 <?php
-  include('db.php');
+  include $_SERVER['DOCUMENT_ROOT']."/db.php";
   $sql=mq("SELECT * FROM topic");
   $list = '';
     while($row = $sql->fetch_array()) {
@@ -12,7 +12,7 @@
     <meta charset="utf-8">
     <title>한화건설/플랜트지원팀</title>
     <link rel='shortcut icon' type='image/vnd.microsoft.icon' href='/img/favicon.ico'>
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
   </head>
   <body>
 
@@ -51,15 +51,15 @@
             <tbody>
               <tr>
 				        <input type="hidden" name="id" value="<?=$_GET['id']?>">
-				        <td><textarea name="공종" id="" cols="15"><?=$board['공종']?></textarea></td>
-                <td><textarea name="업체명" id="" cols="20"><?=$board['업체명']?></textarea></td>
-                <td><textarea name="사업자등록번호" id="" cols="25"><?=$board['사업자등록번호']?></textarea></td>
-                <td><textarea name="한화건설등록여부" id="" cols="28"><?=$board['한화건설등록여부']?></textarea></td>
-                <td><textarea name="연락담당자" id="" cols="25"><?=$board['연락담당자']?></textarea></td>
-                <td><textarea name="전화번호" id="" cols="22"><?=$board['전화번호']?></textarea></td>
-                <td><textarea name="휴대전화" id="" cols="22"><?=$board['휴대전화']?></textarea></td>
-                <td><textarea name="이메일" id="" cols="22"><?=$board['이메일']?></textarea></td>
-                <td><textarea name="특이사항" id="" cols="45"><?=$board['특이사항']?></textarea></td>
+				        <td><textarea name="type" id="" cols="15"><?=$board['type']?></textarea></td>
+                <td><textarea name="company" id="" cols="20"><?=$board['company']?></textarea></td>
+                <td><textarea name="register" id="" cols="25"><?=$board['register']?></textarea></td>
+                <td><textarea name="subcon" id="" cols="28"><?=$board['subcon']?></textarea></td>
+                <td><textarea name="person" id="" cols="25"><?=$board['person']?></textarea></td>
+                <td><textarea name="linenumber" id="" cols="22"><?=$board['linenumber']?></textarea></td>
+                <td><textarea name="mobile" id="" cols="22"><?=$board['mobile']?></textarea></td>
+                <td><textarea name="email" id="" cols="22"><?=$board['email']?></textarea></td>
+                <td><textarea name="etc" id="" cols="45"><?=$board['etc']?></textarea></td>
               </tr>
             </tbody>
         </table>

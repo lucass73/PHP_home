@@ -1,5 +1,5 @@
 <?php
-  include('db.php');
+  include $_SERVER['DOCUMENT_ROOT']."/db.php";
   $sql=mq("SELECT * FROM topic");
   $list = '';
     while($row = $sql->fetch_array()) {
@@ -44,15 +44,15 @@
 
             <tbody>
               <tr>
-                <td><textarea name="공종" id="" cols="15"></textarea></td>
-                <td><textarea name="업체명" id="" cols="20"></textarea></td>
-                <td><textarea name="사업자등록번호" id="" cols="25"></textarea></td>
-                <td><textarea name="한화건설등록여부" id="" cols="28"></textarea></td>
-                <td><textarea name="연락담당자" id="" cols="25"></textarea></td>
-                <td><textarea name="전화번호" id="" cols="22"></textarea></td>
-                <td><textarea name="휴대전화" id="" cols="22"></textarea></td>
-                <td><textarea name="이메일" id="" cols="22"></textarea></td>
-                <td><textarea name="특이사항" id="" cols="45"></textarea></td>
+                <td><textarea name="type" id="" cols="15"></textarea></td>
+                <td><textarea name="company" id="" cols="20"></textarea></td>
+                <td><textarea name="register" id="" cols="25"></textarea></td>
+                <td><textarea name="subcon" id="" cols="28"></textarea></td>
+                <td><textarea name="person" id="" cols="25"></textarea></td>
+                <td><textarea name="linenumber" id="" cols="22"></textarea></td>
+                <td><textarea name="mobile" id="" cols="22"></textarea></td>
+                <td><textarea name="email" id="" cols="22"></textarea></td>
+                <td><textarea name="etc" id="" cols="45"></textarea></td>
               </tr>
             </tbody>
           </table>

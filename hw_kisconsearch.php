@@ -1,5 +1,5 @@
 <?php
-  include('db.php');
+  include $_SERVER['DOCUMENT_ROOT']."/db.php";
   $sql=mq("SELECT * FROM topic");
   $list = '';
     while($row = $sql->fetch_array()) {
@@ -48,10 +48,10 @@
       <div id="search_box">
         <form action="/page/board/search_result_kiscon.php" method="get">
           <select name="catgo">
-            <option value="공사명">공사명</option>
-            <option value="발주자명">발주자명</option>
-            <option value="지역">지역</option>
-            <option value="상호">업체명</option>
+            <option value="constname">공사명</option>
+            <option value="client">발주자명</option>
+            <option value="area">지역</option>
+            <option value="company">업체명</option>
           </select>
           <input type="text" name="search" size="40" required="required" /> <button>검색</button>
         </form>

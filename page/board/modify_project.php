@@ -1,5 +1,5 @@
 <?php
-  include('db.php');
+  include $_SERVER['DOCUMENT_ROOT']."/db.php";
   $sql=mq("SELECT * FROM topic");
   $list = '';
     while($row = $sql->fetch_array()) {
@@ -49,13 +49,13 @@
             <tbody>
               <tr>
               <input type="hidden" name="id" value="<?=$_GET['id']?>">
-              <td><textarea name="프로젝트명" id="" cols="50"><?=$board['프로젝트명']?></textarea></td>
+              <td><textarea name="pj" id="" cols="50"><?=$board['pj']?></textarea></td>
               <td><textarea name="PlantType" id="" cols=""><?=$board['PlantType']?></textarea></td>
-              <td><textarea name="입찰방식" id="" cols=""><?=$board['입찰방식']?></textarea></td>
+              <td><textarea name="typebid" id="" cols=""><?=$board['typebid']?></textarea></td>
               <td><textarea name="BCD" id="" cols=""><?=$board['BCD']?></textarea></td>
-              <td><textarea name="발주처" id="" cols=""><?=$board['발주처']?></textarea></td>
-              <td><textarea name="프로젝트기간" id="" cols="40"><?=$board['프로젝트기간']?></textarea></td>
-              <td><textarea name="공사위치" id="" cols="60"><?=$board['공사위치']?></textarea></td>
+              <td><textarea name="client" id="" cols=""><?=$board['client']?></textarea></td>
+              <td><textarea name="projectperiod" id="" cols="40"><?=$board['projectperiod']?></textarea></td>
+              <td><textarea name="location" id="" cols="60"><?=$board['location']?></textarea></td>
               </tr>
             </tbody>
           </table>

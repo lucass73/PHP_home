@@ -1,5 +1,5 @@
 <?php
-  include('db.php');
+  include $_SERVER['DOCUMENT_ROOT']."/db.php";
   $sql=mq("SELECT * FROM topic");
   $list = '';
     while($row = $sql->fetch_array()) {
@@ -54,33 +54,33 @@
               </thead>
               <?php
               
-                $sql2 = mq("SELECT * FROM contlisttbl where $catagory like '%$search_con%' order by 연번 ");  
+                $sql2 = mq("SELECT * FROM contlisttbl where $catagory like '%$search_con%' order by id ");  
                 while($board = $sql2->fetch_array()){
-                  $공사명=$board["공사명"]; 
-                  if(strlen($공사명)>20)
+                  $constname=$board["constname"]; 
+                  if(strlen($constname)>20)
                   { 
-                    $공사명=str_replace($board["공사명"],mb_substr($board["공사명"],0,20,"utf-8")."...",$board["공사명"]);
+                    $constname=str_replace($board["constname"],mb_substr($board["constname"],0,20,"utf-8")."...",$board["constname"]);
                   }
                   /* $sql3 = mq("select * from reply where con_num='".$board['idx']."'");
                   $rep_count = mysqli_num_rows($sql3);*/
                 ?>
             <tbody>
               <tr>
-                <td><?php echo $board['연번']; ?></td>
-                <td><?php echo $board["도급"]?></td>
+                <td><?php echo $board['id']; ?></td>
+                <td><?php echo $board["contracttype"]?></td>
                 <td>
-                  <a href='/page/board/read.php?id=<?php  echo $board["id"]; ?>'><?php echo $공사명; ?>
+                  <a href='/page/board/read.php?id=<?php  echo $board["id"]; ?>'><?php echo $constname; ?>
                   </a></td>
-                <td><?php echo $board["발주자구분"]?></td>
-                <td><?php echo $board["발주자명"]?></td>
-                <td><?php echo $board["공종"]?></td>
-                <td><?php echo $board["세부공종"]?></td>
-                <td><?php echo $board["지역"]?></td>
-                <td><?php echo $board["계약일"]?></td>
-                <td><?php echo $board["착공일"]?></td>
-                <td><?php echo $board["준공일"]?></td>
-                <td><?php echo $board["공사금액_억원"]?></td>
-                <td><?php echo $board["상호"]?></td>
+                <td><?php echo $board["clienttype"]?></td>
+                <td><?php echo $board["client"]?></td>
+                <td><?php echo $board["const_type"]?></td>
+                <td><?php echo $board["const_detail"]?></td>
+                <td><?php echo $board["area"]?></td>
+                <td><?php echo $board["cont_date"]?></td>
+                <td><?php echo $board["const_start_date"]?></td>
+                <td><?php echo $board["const_fin_date"]?></td>
+                <td><?php echo $board["cont_amount(100m_won)"]?></td>
+                <td><?php echo $board["company"]?></td>
               </tr>
             </tbody>
             <?php } ?>
@@ -89,10 +89,10 @@
       <div id="search_box">
         <form action="/page/board/search_result_kiscon.php" method="get">
           <select name="catgo">
-            <option value="공사명">공사명</option>
-            <option value="발주자명">발주자명</option>
-            <option value="지역">지역</option>
-            <option value="상호">업체명</option>
+            <option value="constname">공사명</option>
+            <option value="client">발주자명</option>
+            <option value="area">지역</option>
+            <option value="company">업체명</option>
           </select>
           <input type="text" name="search" size="40" required="required" /> <button>검색</button>
         </form>

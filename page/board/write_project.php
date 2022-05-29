@@ -1,5 +1,5 @@
 <?php
-  include('db.php');
+  include $_SERVER['DOCUMENT_ROOT']."/db.php";
   $sql=mq("SELECT * FROM topic");
   $list = '';
     while($row = $sql->fetch_array()) {
@@ -26,7 +26,7 @@
     </div>
     <div id="board_area">
      <h3>신규 입찰프로젝트 추가</h3>
-        <form action="write_project_ok.php" method="post" enctype="multipart/form-data">
+        <form action="write_project_ok.php" method="POST" enctype="multipart/form-data">
           <table class="list-table">
             <thead>
                 <tr>
@@ -42,13 +42,13 @@
 
             <tbody>
               <tr>
-              <td><textarea name="프로젝트명" id="" cols="50"></textarea></td>
-              <td><textarea name="PlantType" id="" cols=""></textarea></td>
-              <td><textarea name="입찰방식" id="" cols=""></textarea></td>
-              <td><textarea name="BCD" id="" cols=""></textarea></td>
-              <td><textarea name="발주처" id="" cols=""></textarea></td>
-              <td><textarea name="프로젝트기간" id="" cols="40"></textarea></td>
-              <td><textarea name="공사위치" id="" cols="60"></textarea></td>
+              <td><textarea name="pj" id="" cols="50"></textarea></td>
+              <td><textarea name="PlantType" id="" cols="" placeholder="화공/정유,발전,LNG,산업설비..."></textarea></td>
+              <td><textarea name="typebid" id="" cols="" placeholder="종심제,경쟁입찰,투자비산출..."></textarea></td>
+              <td><textarea name="BCD" id="" cols="" placeholder="yyyy-mm-dd"></textarea></td>
+              <td><textarea name="client" id="" cols=""></textarea></td>
+              <td><textarea name="projectperiod" id="" cols="40"></textarea></td>
+              <td><textarea name="location" id="" cols="60"></textarea></td>
               </tr>
             </tbody>
           </table>

@@ -1,8 +1,8 @@
 <?php
 
-include('db.php');
+include $_SERVER['DOCUMENT_ROOT']."/db.php";
 
-$sql = mq("update subconlist set 공종='".$_POST['공종']."',업체명='".$_POST['업체명']."',사업자등록번호='".$_POST['사업자등록번호']."',한화건설등록여부='".$_POST['한화건설등록여부']."',연락담당자='".$_POST['연락담당자']."',전화번호='".$_POST['전화번호']."',휴대전화='".$_POST['휴대전화']."',이메일='".$_POST['이메일']."',특이사항='".$_POST['특이사항']."' where id='".$_POST['id']."'");
+$sql = mq("update subconlist set type='".$_POST['type']."',company='".$_POST['company']."',register='".$_POST['register']."',subcon='".$_POST['subcon']."',person='".$_POST['person']."',linenumber='".$_POST['linenumber']."',mobile='".$_POST['mobile']."',email='".$_POST['email']."',etc='".$_POST['etc']."' where id='".$_POST['id']."'");
 echo "<script>alert('수정되었습니다.');</script>";
 ?>
-<meta http-equiv="refresh" content="0 url=hw_company.php" /> 
+<meta http-equiv="refresh" content="0 url=/hw_company.php" /> 
